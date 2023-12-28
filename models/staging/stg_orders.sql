@@ -8,6 +8,7 @@ o.shipmode,
 o.ordersellingprice,
 o.ordercostprice,
 o.ordersellingprice - o.ordercostprice as orderprofit 
+, ((o.ordersellingprice - o.ordercostprice ) / o.ordercostprice ) * 100  as profit_margin 
 , c.customerid
 , c.customername
 , c.segment
