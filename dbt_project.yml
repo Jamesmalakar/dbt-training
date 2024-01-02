@@ -2,7 +2,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'globalmart'
+name: 'snowflake_workshop'
 version: '1.0.0'
 config-version: 2
 
@@ -22,6 +22,7 @@ snapshot-paths: ["snapshots"]
 target-path: "target"  # directory which will store compiled SQL files
 clean-targets:         # directories to be removed by `dbt clean`
   - "target"
+  - "dbt_modules"
   - "dbt_packages"
 
 
@@ -36,12 +37,11 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-  globalmart:
-    # Applies to all files under models/example/
-    raw:
-      +materialized: table
+  snowflake_workshop:
     staging:
-      +materialized: view 
-    reporting:
-      +materialized: table 
+      materialized: view
+      snowflake_warehouse: pc_dbt_wh
+    marts:
+      materialized: table
+      snowflake_warehouse: pc_dbt_wh_large
 
