@@ -40,8 +40,8 @@ models:
   snowflake_workshop:
     staging:
       materialized: view
-      snowflake_warehouse: pc_dbt_wh
+
     marts:
       materialized: table
-      snowflake_warehouse: pc_dbt_wh_large
+    
 
